@@ -1,7 +1,4 @@
 namespace DatabaseRelationships.Api.Models.DTOs;
 
 
-public class CharacterCreateDTO
-{
-
-}
+public record struct CharacterCreateDTO(string Name, BackPackCreateDTO BackPack);
