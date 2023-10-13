@@ -12,4 +12,5 @@ public class BackPackContext : DbContext
 
     public DbSet<Character> Characters { get; set; }
     public DbSet<BackPack> BackPacks { get; set; }
+    public DbSet<Weapon> Weapons { get; set; }
 }
