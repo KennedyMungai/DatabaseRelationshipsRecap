@@ -30,10 +30,12 @@ public class BackPackController : ControllerBase
             return await Task.FromResult(BadRequest(ModelState));
         }
 
-        await _context.Characters.AddAsync(_mapper.Map<Character>(character));
+        var newCharacter = _mapper.Map<Character>(character);
+
+        await _context.Characters.AddAsync(newCharacter);
 
         await _context.SaveChangesAsync();
 
-        return await Task.FromResult(CreatedAtRoute("RetrieveOneCharacter", new { Id = _mapper.Map<Character>(character).Id }, character));
+        return await Task.FromResult(CreatedAtRoute("RetrieveOneCharacter", new { Id = newCharacter.Id }, character));
     }
 }
